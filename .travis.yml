@@ -1,5 +1,12 @@
+env:
+  global:
+    - BAKERY_STORMPATH_API_KEY_ID=2ING77NVCYXIV2PUIZJVENRHW
+    - BAKERY_STORMPATH_API_KEY_SECRET=jcRPqVGoMLY8QMH+TLI+SAKXD++IZ7Z5RFIpD3Xsv3A
+    - USERNAME_USER=Administrador
+    - PASSWORD_USER=Sunshine3
 language: java
 jdk:
   - oraclejdk8
 after_success:
   - mvn sonar:sonar
+sudo: required
