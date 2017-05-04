@@ -1,0 +1,5 @@
+projectKey=co.edu.uniandes.csw.bakery:bakery
+serverUrl=https://157.253.238.75
+dashboardUrl=https://157.253.238.75/dashboard/index/co.edu.uniandes.csw.bakery:bakery
+ceTaskId=AVvS0oAR5SlFc-l784mf
+ceTaskUrl=https://157.253.238.75/api/ce/task?id=AVvS0oAR5SlFc-l784mf
