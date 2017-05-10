@@ -1,0 +1,1 @@
+/Users/Asistente/AppData/Roaming/npm/newman run /Users/Asistente/Documents/crud_bakers.postman_collection.json -e /Users/Asistente/Documents/bakery_dev.postman_environment.json --disable-unicode --reporter-cli-no-summary

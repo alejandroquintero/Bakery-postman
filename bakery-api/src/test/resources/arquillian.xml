@@ -31,5 +31,12 @@ SOFTWARE.
     <extension qualifier="graphene">
         <!-- https://docs.jboss.org/author/display/ARQGRA2/Graphene+Configuration -->
         <property name="waitGuardInterval">20</property>
+        
     </extension>
+    <container qualifier="glassfish-embedded"
+               default="true">
+        <configuration>
+            <property name="bindHttpPort">8080</property>
+        </configuration>
+    </container>
 </arquillian>

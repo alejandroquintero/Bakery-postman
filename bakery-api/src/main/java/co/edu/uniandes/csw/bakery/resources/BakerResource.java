@@ -83,10 +83,12 @@ public class BakerResource {
      */
     @GET
     public List<BakerDetailDTO> getBakers() {
+/*
         if (page != null && maxRecords != null) {
             this.response.setIntHeader("X-Total-Count", bakerLogic.countBakers());
             return listEntity2DTO(bakerLogic.getBakers(page, maxRecords));
         }
+*/
         return listEntity2DTO(bakerLogic.getBakers());
     }
 

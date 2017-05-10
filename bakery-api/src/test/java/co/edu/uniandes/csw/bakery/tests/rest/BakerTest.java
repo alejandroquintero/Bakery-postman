@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
 package co.edu.uniandes.csw.bakery.tests.rest;
 
 import co.edu.uniandes.csw.auth.model.UserDTO;
@@ -29,8 +30,14 @@ import co.edu.uniandes.csw.bakery.entities.BakerEntity;
 import co.edu.uniandes.csw.bakery.dtos.detail.BakerDetailDTO;
 import co.edu.uniandes.csw.bakery.resources.BakerResource;
 import co.edu.uniandes.csw.bakery.tests.Utils;
+import com.sun.xml.fastinfoset.util.CharArray;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +53,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.glassfish.admin.restconnector.Logging;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
@@ -64,6 +72,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 /*
  * Testing URI: bakers/
  */
+
 @RunWith(Arquillian.class)
 public class BakerTest {
 
@@ -124,6 +133,8 @@ public class BakerTest {
      *
      * @generated
      */
+     
+    
     public void insertData() {
         for (int i = 0; i < 3; i++) {            
             BakerEntity baker = factory.manufacturePojo(BakerEntity.class);
@@ -138,6 +149,7 @@ public class BakerTest {
      *
      * @generated
      */
+
     @Before
     public void setUpTest() {
         try {
@@ -165,6 +177,7 @@ public class BakerTest {
      * @return Cookie con información de la sesión del usuario
      * @generated
      */
+
     public Cookie login(String username, String password) {
         UserDTO user = new UserDTO();
         user.setUserName(username);
@@ -182,11 +195,14 @@ public class BakerTest {
     /**
      * Prueba para crear un Baker
      *
+     * @throws java.io.IOException
      * @generated
      */
+
     @Test
     public void createBakerTest() throws IOException {
-        BakerDetailDTO baker = factory.manufacturePojo(BakerDetailDTO.class);
+     
+       BakerDetailDTO baker = factory.manufacturePojo(BakerDetailDTO.class);
         Cookie cookieSessionId = login(username, password);
 
         Response response = target
@@ -208,6 +224,7 @@ public class BakerTest {
      *
      * @generated
      */
+
     @Test
     public void getBakerByIdTest() {
         Cookie cookieSessionId = login(username, password);
@@ -243,7 +260,7 @@ public class BakerTest {
      *
      * @generated
      */
-    @Test
+   @Test
     public void updateBakerTest() throws IOException {
         Cookie cookieSessionId = login(username, password);
         BakerDetailDTO baker = new BakerDetailDTO(oraculo.get(0));
@@ -268,6 +285,7 @@ public class BakerTest {
      *
      * @generated
      */
+
     @Test
     public void deleteBakerTest() {
         Cookie cookieSessionId = login(username, password);

@@ -23,6 +23,8 @@ SOFTWARE.
 */
 package co.edu.uniandes.csw.bakery.tests.selenium;
 
+import co.edu.uniandes.csw.auth.stormpath.ApiKeyProperties;
+import co.edu.uniandes.csw.bakery.dtos.detail.BakerDetailDTO;
 import co.edu.uniandes.csw.bakery.dtos.minimum.BakerDTO;
 import co.edu.uniandes.csw.bakery.resources.BakerResource;
 import co.edu.uniandes.csw.bakery.tests.selenium.pages.baker.BakerCreatePage;
@@ -31,7 +33,11 @@ import co.edu.uniandes.csw.bakery.tests.selenium.pages.LoginPage;
 import co.edu.uniandes.csw.bakery.tests.selenium.pages.baker.BakerDeletePage;
 import co.edu.uniandes.csw.bakery.tests.selenium.pages.baker.BakerDetailPage;
 import co.edu.uniandes.csw.bakery.tests.selenium.pages.baker.BakerEditPage;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.drone.api.annotation.Drone;
@@ -52,6 +58,8 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
+import java.util.logging.Logger;
+
 
 @RunWith(Arquillian.class)
 public class BakerIT {
@@ -85,6 +93,7 @@ public class BakerIT {
                         .withTransitivity().asFile())
                 // Se agregan los compilados de los paquetes de servicios
                 .addPackage(BakerResource.class.getPackage())
+              
                 // El archivo que contiene la configuracion a la base de datos.
                 .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 // El archivo beans.xml es necesario para injeccion de dependencias.
@@ -96,20 +105,24 @@ public class BakerIT {
                 .merge(ShrinkWrap.create(GenericArchive.class).as(ExplodedImporter.class)
                         .importDirectory("src/main/webapp").as(GenericArchive.class), "/");
     }
-
+    
+ 
+    
+    
+    
     @Before
     public void setup() {
         browser.manage().window().maximize();
         browser.get(deploymentURL.toExternalForm());
     }
 
-    @Test
+    @Test 
     @InSequence(0)
     public void login(@InitialPage LoginPage loginPage) {
         browser.manage().deleteAllCookies();
         loginPage.login();
     }
-
+   
     @Test
     @InSequence(1)
     public void createBaker(@InitialPage BakerListPage listPage) {

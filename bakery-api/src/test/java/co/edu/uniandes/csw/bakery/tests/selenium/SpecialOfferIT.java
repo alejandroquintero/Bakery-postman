@@ -109,7 +109,7 @@ public class SpecialOfferIT {
         browser.manage().deleteAllCookies();
         loginPage.login();
     }
-
+/*
     @Test
     @InSequence(1)
     public void createSpecialOffer(@InitialPage SpecialOfferListPage listPage) {
@@ -148,5 +148,5 @@ public class SpecialOfferIT {
         Integer expected = 0;
         Assert.assertEquals(expected, listPage.countSpecialOffers());
     }
-
+*/
 }

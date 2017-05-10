@@ -17,6 +17,7 @@
             <url>http://157.253.238.75:8081/content/repositories/releases/</url>
         </repository>
     </repositories>
+    
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -42,11 +43,15 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.glassfish.embedded/maven-embedded-glassfish-plugin -->
+ 
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
+            
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
@@ -70,15 +75,18 @@
             <artifactId>podam</artifactId>
             <version>6.0.2.RELEASE</version>
         </dependency>
-		<dependency>
-              <groupId>org.jboss.shrinkwrap.resolver</groupId>
-              <artifactId>shrinkwrap-resolver-depchain</artifactId>
-              <scope>test</scope>
-              <type>pom</type>
-         </dependency>
+        <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-depchain</artifactId>
+            <scope>test</scope>
+            <type>pom</type>
+        </dependency>
+        
     </dependencies>
     <build>
+      
         <plugins>
+            
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -86,16 +94,18 @@
                
                 <executions>
                     <execution>
-                        <goals>
-                           
-                           <goal>prepare-agent</goal>
-                           <goal>prepare-agent-integration</goal>
-                           <goal>report</goal>
-                           <goal>report-integration</goal>
+                        <goals>  
+                            <goal>prepare-agent</goal>
+                            <goal>prepare-agent-integration</goal>
+                            <goal>report</goal>
+                            <goal>report-integration</goal>    
                         </goals>
                     </execution>
+                  
                 </executions>
-            </plugin>
-        </plugins>
+             
+            </plugin> 
+            
+   </plugins>
     </build>
 </project>

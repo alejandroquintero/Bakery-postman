@@ -109,7 +109,7 @@ public class CategoryIT {
         browser.manage().deleteAllCookies();
         loginPage.login();
     }
-
+/*
     @Test
     @InSequence(1)
     public void createCategory(@InitialPage CategoryListPage listPage) {
@@ -148,5 +148,5 @@ public class CategoryIT {
         Integer expected = 0;
         Assert.assertEquals(expected, listPage.countCategorys());
     }
-
+*/
 }
